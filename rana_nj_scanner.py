@@ -2,7 +2,7 @@ import requests
 import time
 import os
 
-# কালার কোড
+# Color Codes
 R = '\033[1;31m'
 G = '\033[1;32m'
 Y = '\033[1;33m'
@@ -28,22 +28,22 @@ def banner():
 
 def scan_website(url):
     banner()
-    print(f"{C}[*] টার্গেট সার্ভার:{W} {url}")
-    print(f"{Y}[*] স্ক্যানিং প্রসেস শুরু হচ্ছে...{W}\n")
+    print(f"{C}[*] Target Server:{W} {url}")
+    print(f"{Y}[*] Scanning process starting...{W}\n")
     time.sleep(2)
     try:
         response = requests.get(url, timeout=10)
-        print(f"{G}[+] সার্ভার অনলাইন আছে (Status: {response.status_code}){W}")
-        server = response.headers.get('Server', 'প্রাইভেট সার্ভার')
-        print(f"{C}[!] সার্ভার টেকনোলজি:{W} {server}")
-        print(f"\n{Y}[*] পাসওয়ার্ড সিকিউরিটি চেক করা হচ্ছে...{W}")
+        print(f"{G}[+] Server is Online (Status: {response.status_code}){W}")
+        server = response.headers.get('Server', 'Private Server')
+        print(f"{C}[!] Server Technology:{W} {server}")
+        print(f"\n{Y}[*] Checking security headers...{W}")
         time.sleep(1.5)
-        print(f"{G}[+] রেজাল্ট: সার্ভারটি সুরক্ষিত মনে হচ্ছে।{W}")
+        print(f"{G}[+] Result: Server looks protected.{W}")
     except Exception as e:
-        print(f"{R}[!] এরর: ইউআরএল ভুল অথবা সার্ভার ডাউন।{W}")
+        print(f"{R}[!] Error: Invalid URL or Server Down.{W}")
 
 if __name__ == "__main__":
-    target = input(f"{Y}আপনার টার্গেট URL দিন: {W}")
+    target = input(f"{Y}Enter Target URL: {W}")
     if not target.startswith("http"):
         target = "http://" + target
     scan_website(target)
