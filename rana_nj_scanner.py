@@ -11,10 +11,11 @@ W = '\033[0m'
 
 def banner():
     os.system('clear')
-    print(f"""
+    # Using 'r' before the string to fix escape sequence warnings
+    print(fr"""
 {R}      _______      {Y}  Rana.nj  {R}      _______
-     /   {Y}⚙   {R}\                     /   {Y}⚙   {R}\\
-    /    {Y}⚙   {R} \                   /    {Y}⚙   {R} \\
+     /   {Y}O   {R}\                     /   {Y}O   {R}\
+    /    {Y}O   {R} \                   /    {Y}O   {R} \
    |           |                 |           |
    |  {W}X     X  {R}|                 |  {W}X     X  {R}|
    |   {W}\___/   {R}|                 |   {W}\___/   {R}|
